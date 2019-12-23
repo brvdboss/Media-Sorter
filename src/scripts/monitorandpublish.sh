@@ -5,7 +5,7 @@ then
 	LOCALE="en-US"
 fi
 
-echo "Processing"
+echo "Scanning & Processing"
 
 tempident="/tmp/ident"
 mkdir -p $tempident
