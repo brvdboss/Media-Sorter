@@ -14,5 +14,5 @@ By using the date in the file:
 we generate a filename in the style of `<year>-<month>-<day>-<timeofday>-<identifier>.extension`
 organized in a folder structure: `<year>/<month>/<day>`
 
-##NFS mounts
+## NFS mounts
 The docker container expects 2 NGS mounts, a source ingest folder where files are dropped that need to be processed. This folder is scanned continuously and a destination folder where the files are to be stored. Files are moved, not copied. 
