@@ -23,3 +23,6 @@ sh /tmp/movethem.sh
 
 cd $tempident
 exiftool -r -d $MOUNTPOINT_DST/%Y/%Y-%m/%Y-%m-%d/%Y-%m-%d-%H%M%S_%%f.%%le "-filename<filemodifydate" "-filename<createdate" "-filename<datetimeoriginal" .
+
+#remove all files that already existed
+rm -r $tempident
