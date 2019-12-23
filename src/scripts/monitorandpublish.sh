@@ -13,10 +13,22 @@ mkdir -p $tempident
 #Find all media image files
 extensions="jpg jpeg bmp png tiff"
 rm /tmp/movethem.sh
+rm /tmp/batch
 for i in $extensions;
 do
-	find $MOUNTPOINT_SRC -type f -cmin +1 -iname "*.$i" ! -path "*__thumb*" -exec echo -n "mv -n \"{}\" " \; -exec echo -n "$tempident/" \; -exec identify -format %# {} \; -exec bash -c 'echo ".${1##*.}"' _ {} \;  >> /tmp/movethem.sh
+	#find $MOUNTPOINT_SRC -type f -cmin +1 -iname "*.$i" ! -path "*__thumb*" -exec echo -n "mv -n \"{}\" " \; -exec echo -n "$tempident/" \; -exec identify -format %# {} \; -exec bash -c 'echo ".${1##*.}"' _ {} \;  >> /tmp/movethem.sh
+	
+	find $MOUNTPOINT_SRC -type f -cmin +1 -iname "*.$i" ! -path "*__thumb*" | head -n 10 >> /tmp/batch
 done
+
+while read line
+do
+	id=`identify -format %# "$line"`
+	ext=`bash -c 'echo ".${1##*.}"' _ "$line"`
+	echo "id = $id"
+	echo "ext = $ext"
+	echo "mv -n \"$line\" $tempident/$id$ext" >> /tmp/movethem.sh
+done < /tmp/batch
 
 #move them to the temp directory
 sh /tmp/movethem.sh	
