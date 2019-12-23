@@ -4,6 +4,9 @@ RUN apk add --no-cache \
 	exiftool \
 	imagemagick \
 	nfs-utils \
+	bash \
+	findutils \
+	coreutils \
   && rm -rf /var/cache/apk/*
 
 ENV FSTYPE_SRC nfs

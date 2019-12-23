@@ -5,7 +5,7 @@ then
 	LOCALE="en-US"
 fi
 
-echo "hello"
+echo "Processing"
 
 tempident="/tmp/ident"
 mkdir -p $tempident
@@ -15,7 +15,7 @@ extensions="jpg jpeg bmp png tiff"
 rm /tmp/movethem.sh
 for i in $extensions;
 do
-	find $MOUNTPOINT_SRC -type f -mtime +60s -iname "*.$i" ! -path "*__thumb*" -exec echo -n "mv -n \"{}\" " \; -exec echo -n "$tempident/" \; -exec identify -format %# {} \; -exec bash -c 'echo ".${1##*.}"' _ {} \;  >> /tmp/movethem.sh
+	find $MOUNTPOINT_SRC -type f -cmin +1 -iname "*.$i" ! -path "*__thumb*" -exec echo -n "mv -n \"{}\" " \; -exec echo -n "$tempident/" \; -exec identify -format %# {} \; -exec bash -c 'echo ".${1##*.}"' _ {} \;  >> /tmp/movethem.sh
 done
 
 #move them to the temp directory
