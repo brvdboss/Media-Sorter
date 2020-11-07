@@ -18,13 +18,13 @@ mount -t "$FSTYPE_DST" -o "$MOUNT_OPTIONS_DST" "$SERVER_DST:$SHARE_DST" "$MOUNTP
 # They can both run on the same mounts and will not interfere with each other
 
 #In case of image files
-if [ $MEDIATYPE = "image"]
+if [ $MEDIATYPE = "image" ]
 then
   while :; do sleep $POLLING_INTERVAL & /Media-Sorter/monitorandpublish.sh; wait; done
 fi
 
 #in case of video files
-if [ $MEDIATYPE = "video"]
+if [ $MEDIATYPE = "video" ]
 then
   while :; do sleep $POLLING_INTERVAL & /Media-Sorter/monitorandpublish-video.sh; wait; done
 fi
