@@ -5,7 +5,7 @@ then
 	LOCALE="en-US"
 fi
 
-echo "Scanning & Processing"
+echo "Scanning & Processing videos"
 
 tempident="/tmp/ident-videos"
 mkdir -p $tempident
