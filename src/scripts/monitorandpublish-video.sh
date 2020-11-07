@@ -16,7 +16,7 @@ rm /tmp/movethem-video.sh
 rm /tmp/batch-video
 for i in $extensions;
 do
-	find $MOUNTPOINT_SRC -type f -cmin +1 -iname "*.$i" ! -path "*__thumb*" | head -n 10 >> /tmp/batch-video
+	find $MOUNTPOINT_SRC -type f -cmin +5 -iname "*.$i" ! -path "*__thumb*" | head -n 10 >> /tmp/batch-video
 done
 
 while read line
