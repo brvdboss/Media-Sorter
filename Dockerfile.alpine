@@ -3,6 +3,7 @@ FROM alpine:latest
 RUN apk add --no-cache \
 	exiftool \
 	imagemagick \
+	ffmpeg \
 	nfs-utils \
 	bash \
 	findutils \
