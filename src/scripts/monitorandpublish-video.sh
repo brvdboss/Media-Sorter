@@ -26,7 +26,7 @@ do
 	# for video formats.
 	#clean up any previous frame0 to avoid it being picked up for the wrong file
 	rm /tmp/frame0.bmp
-	ffmpeg -i $line -vframes 1 /tmp/frame0.bmp
+	ffmpeg -i "$line" -vframes 1 /tmp/frame0.bmp
 	#run the identify command on the bmp
 	#this basically generates the same output as:
 	#id=`identify -format %# "$line[0]"`
