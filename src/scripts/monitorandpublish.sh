@@ -11,7 +11,7 @@ tempident="/tmp/ident"
 mkdir -p $tempident
 
 #Find all media image files
-extensions="jpg jpeg bmp png tiff"
+extensions=$IMGEXT
 rm /tmp/movethem.sh
 rm /tmp/batch
 for i in $extensions;

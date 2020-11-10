@@ -11,7 +11,7 @@ tempident="/tmp/ident-videos"
 mkdir -p $tempident
 
 #Find all media image files
-extensions="avi mov mp4 vob mpg mpeg wmv webm m2ts"
+extensions=$VIDEXT
 rm /tmp/movethem-video.sh
 rm /tmp/batch-video
 for i in $extensions;
