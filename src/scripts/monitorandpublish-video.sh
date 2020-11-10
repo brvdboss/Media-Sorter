@@ -32,7 +32,7 @@ do
 	#id=`identify -format %# "$line[0]"`
 	#however, going through ffmpeg we remove the need to have an appropriate delegate
 	#compiled in with imagemagick
-	id=`identify -format %# /tmp/frame0.bmp
+	id=`identify -format %# /tmp/frame0.bmp`
 	ext=`bash -c 'echo ".${1##*.}"' _ "$line"`
 	rm /tmp/frame0.bmp
 	echo "id = $id"
