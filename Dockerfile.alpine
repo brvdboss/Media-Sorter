@@ -20,6 +20,12 @@ ENV MOUNT_OPTIONS_DST rw
 ENV FSTYPE_DST=nfs4
 ENV MOUNTPOINT_DST /mnt/nfs-dst
 
+ENV MEDIATYPE=image
+#ENV MEDIATYPE=video
+
+ENV IMGEXT="jpg jpeg bmp png tiff"
+ENV VIDEXT="avi mov mp4 vob mpg mpeg wmv webm m2ts"
+
 COPY ./src/scripts/* /Media-Sorter/
 RUN chmod +x /Media-Sorter/*.sh
 RUN mkdir $MOUNTPOINT_DST
